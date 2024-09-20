@@ -1,12 +1,16 @@
-import { LoginLeftImage } from "../../assets";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
+
+import { LoginLeftImage } from "../../assets";
+import { routesPath } from "../../constants/common";
 
 const LoginScreen = () => {
   const [username, setUsername] = useState("fetestuser@example.com");
   const [password, setPassword] = useState("fetest1234");
 
   const { t } = useTranslation();
+  const navigate = useNavigate();
 
   const handleUsernameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setUsername(e.target.value);
@@ -19,6 +23,8 @@ const LoginScreen = () => {
 
   const handleSubmit = async () => {
     // Todo
+    navigate(`/${routesPath.HOME}`);
+    
   };
 
   const handleForgotPassword = async () => {
