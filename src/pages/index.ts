@@ -1,6 +1,15 @@
-import HomePage from './HomePage';
-import MainPage from './MainPage';
-import SignInPage from './SignInPage';
-import OverviewPage from './OverviewPage';
+import HomePage from "./HomePage";
+import MainPage from "./MainPage";
+import SignInPage from "./SignInPage";
+import CreateProjectPage from "./CreateProjectPage";
+import ProjectDetailsPage from "./ProjectDetailsPage";
+import CreateRecommendationPage from "./CreateRecommendationPage";
 
-export {HomePage, MainPage, SignInPage, OverviewPage};
+export {
+  HomePage,
+  MainPage,
+  SignInPage,
+  CreateProjectPage,
+  ProjectDetailsPage,
+  CreateRecommendationPage,
+};
