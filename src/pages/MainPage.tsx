@@ -18,7 +18,6 @@ const MainPage = () => {
     else
     navigate(`/${routesPath.SIGNIN}`);
 
-    navigate(`/${routesPath.CREATE_RECOMMENDATION}`); // TO Do: remove this line
   }, [isAuth]);
 
   return (

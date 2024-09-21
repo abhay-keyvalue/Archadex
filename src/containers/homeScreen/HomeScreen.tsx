@@ -1,5 +1,12 @@
 import { useNavigate } from "react-router-dom";
 import { routesPath } from "../../constants/common";
+import SideBar from "../../components/SideBar";
+
+type Project = {
+  id: number;
+  name: string;
+  description: string;
+};
 
 const listOfProjects = [
   {
@@ -29,25 +36,45 @@ const HomeScreen = () => {
   const onPressProjectDetails = () => {
     navigate(`/${routesPath.PROJECT_DETAILS}`);
   };
-  return (
-    <div className="flex-1 h-full p-20">
-      <div className="flex justify-between w-full"> 
-        <div className="flex mr-56">Home</div>
-        <div className="flex" onClick={onPressCreateProject}>CreateProject</div>
-      </div>
 
-      <div onClick={onPressProjectDetails}>Projects</div>
-      <div className="flex row">
-        {listOfProjects.map((project) => (
-          <div
-            className="p-2 border-cyan-700 border-2 m-3"
-            onClick={onPressProjectDetails}
-            key={project.id}
+  const renderProjectCard = (project: Project) => {
+    return (
+      <div
+        className="p-2 border-cyan-700 border-2 m-3"
+        onClick={onPressProjectDetails}
+        key={project.id}
+      >
+        <div>{project.name}</div>
+        <div>{project.description}</div>
+      </div>
+    );
+  };
+
+  return (
+    <div className="flex h-full bg-gray-100 p-8">
+      {/* Sidebar */}
+      <SideBar />
+
+      {/* Right Container */}
+      <div className="flex-grow p-10">
+        {/* Top Header */}
+        <div className="flex justify-between items-center mb-6">
+          <h1 className="text-2xl font-bold">Home</h1>
+          <button
+            className="bg-blue-950	 text-white py-2 px-6 rounded hover:bg-blue-900 transition-colors duration-200 shadow-md"
+            onClick={onPressCreateProject}
           >
-            <div>{project.name}</div>
-            <div>{project.description}</div>
+            + New Project
+          </button>
+        </div>
+
+        {/* Projects Section */}
+        <div>
+          <h2 className="text-xl font-semibold mb-4">Projects</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {listOfProjects.map((project) => renderProjectCard(project))}
           </div>
-        ))}
+        </div>
       </div>
     </div>
   );
