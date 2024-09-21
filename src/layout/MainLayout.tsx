@@ -20,7 +20,6 @@ const MainLayout = ({children}: {children: React.ReactNode}) => {
 
   const tabs = [
     {title: 'home', route: `/${routesPath.HOME}`},
-    {title: 'overview', route: `/${routesPath.OVERVIEW}`}
   ];
 
   useOutsideClickAlerter(
