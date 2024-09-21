@@ -2,7 +2,6 @@ import {Outlet, useNavigate, useLocation} from 'react-router-dom';
 import {useEffect, useState} from 'react';
 import {IS_AUTHENTICATED} from '../constants/common';
 import {routesPath} from '../constants/common';
-import MainLayout from '../layout/MainLayout';
 
 const MainPage = () => {
   const [isAuth, setIsAuth] = useState('false');
@@ -18,14 +17,9 @@ const MainPage = () => {
       navigate(location.pathname ? location.pathname : `/${routesPath.HOME}`);
     else
     navigate(`/${routesPath.SIGNIN}`);
-  }, [isAuth]);
 
-  if (localStorage.getItem(IS_AUTHENTICATED) === 'true')
-    return (
-      <MainLayout>
-        <Outlet />
-      </MainLayout>
-    );
+    navigate(`/${routesPath.CREATE_RECOMMENDATION}`); // TO Do: remove this line
+  }, [isAuth]);
 
   return (
     <>

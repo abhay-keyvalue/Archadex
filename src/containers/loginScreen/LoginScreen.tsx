@@ -2,7 +2,6 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 
-import { LoginLeftImage } from "../../assets";
 import { routesPath } from "../../constants/common";
 
 const LoginScreen = () => {
@@ -39,7 +38,6 @@ const LoginScreen = () => {
       >
         <div className="flex flex-row justify-center align-middle h-fit"></div>
         <div className="w-full flex justify-center pt-20 pb-16">
-          <img src={LoginLeftImage} alt="Login Left Image" />
         </div>
         <div className="w-full flex justify-center">
           <h1 className="text-white text-4xl text-center text-wrap max-w-96">
